@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-Validation</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+            
+            
+            
+            }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #form{
+            padding: 45px;
+            background-color: white
+            
+            
+            
+
+        }
+        .input{
+            width:80%;
+            padding: 6px;
+            margin: 11px
+        }
+        #submit{
+            width: 181px;
+            background-color:cornflowerblue;
+            color: cornsilk;
+            font-size: 2ev;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+
+        }
+        #submit:hover{
+            background-color: rgb(77, 129, 226);
+        }
+        h1{
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            padding-bottom: 10px;
+        }
+        .para{
+            margin: 0px;
+            padding-left: 13px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <form action="" id="form" onsubmit="return validate()">
+               <h1>Login Form</h1>
+               <input type="text" placeholder="User Name" class="input" id="user"><br>
+               <p class="para" id="userE"></p>
+               <input type="password" name="" id="pass" class="input" placeholder="Password"><br>
+               <p class="para"  id="passwE"></p>
+               <input class="input" id="submit" type="submit">
+        </form>
+    </div>
+    <script>
+        
+        let user=document.getElementById("user");
+        let passw=document.getElementById("pass");
+        let flag=1;
+         
+        function validate(){
+
+        
+            if(user.value == "")
+            {
+                let a=document.getElementById("userE");
+                a.innerHTML="User Name is Required*";
+                flag=0;
+            }
+            else if(user.value.length <3)
+                {
+                console.log("less than 3");
+                let a=document.getElementById("userE");
+                a.innerHTML="Username can't be less than 3 word";
+                flag=0;
+         
+                }
+
+            else
+            {
+                document.getElementById("userE").innerHTML="";
+                flag=1
+
+            }
+            
+            
+             
+            if(passw.value =="")
+            { 
+                document.getElementById("passwE").innerHTML="Password Required*";
+                flag=0;
+
+            }
+            else if(user.value!=""){
+                document.getElementById("passwE").innerHTML="";
+                flag=1
+            }
+            
+
+            if(flag){
+                return true;
+            }
+            else{
+                return false;
+            }
+
+        }
+    </script>
+    
+</body>
+</html>
